@@ -1,0 +1,30 @@
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: tesrepo_production
+  pool: 5
+  username: root
+  password: "password"
+  # host: localhost
+  # socket: /tmp/mysql.sock
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: tesrepo_development
+  pool: 5
+  username: root
+  password: "password"
+  # socket: /tmp/mysql.sock
+
+test: &test
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: tesrepo_test
+  pool: 5
+  username: root
+  password: password
+  # socket: /tmp/mysql.sock

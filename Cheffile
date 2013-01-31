@@ -8,13 +8,14 @@ cookbook 'apt'
 cookbook 'vim'
 cookbook 'git'
 cookbook 'application'
-cookbook 'application_ruby'
+cookbook 'mysql'
+cookbook 'database'
 
-# cookbook 'apache2', '>= 1.0.0'
+#application_ruby dependencies
+cookbook 'unicorn'
+cookbook 'apache2'
+cookbook 'passenger_apache2'
+#
 
-# cookbook 'rvm',
-#   :git => 'https://github.com/fnichol/chef-rvm'
-
-# cookbook 'postgresql',
-#   :git => 'https://github.com/findsyou/cookbooks',
-#   :ref => 'postgresql-improvements'
+cookbook 'rvm',
+  :git => 'https://github.com/fnichol/chef-rvm'

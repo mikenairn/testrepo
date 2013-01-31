@@ -24,7 +24,8 @@ action :before_compile do
   include_recipe "apache2"
   include_recipe "apache2::mod_ssl"
   include_recipe "apache2::mod_rewrite"
-  include_recipe "passenger_apache2::mod_rails"
+  ## Removed this so it doesn't override rvm passenger config MN
+  #include_recipe "passenger_apache2::mod_rails"
 
   unless new_resource.server_aliases
     server_aliases = [ "#{new_resource.application.name}.#{node['domain']}", node['fqdn'] ]

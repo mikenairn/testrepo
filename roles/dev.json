@@ -1,0 +1,17 @@
+{
+    "name":"dev",
+    "description":"Install development preferences",
+    "json_class":"Chef::Role",
+    "default_attributes": {
+        "environment": "development"
+    },
+    "override_attributes":{
+        "deployment": {
+            "domain" : "vcap.me"
+        }
+    },
+    "chef_type":"role",
+    "run_list" : [],
+    "env_run_lists":{
+    }
+}

@@ -47,8 +47,6 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.6)
-    librarian (0.0.4)
-      thor
     libv8 (3.11.8.13)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -113,7 +111,6 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
-  librarian
   mysql2
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)

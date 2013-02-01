@@ -15,4 +15,5 @@
 .vagrant
 /tmp/*
 cookbooks/
-
+.rakeTasks
+.rvmrc

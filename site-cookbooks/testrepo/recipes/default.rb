@@ -46,7 +46,7 @@ application "testrepo" do
     # Rails-specific configuration. See the README in the
     # application_ruby cookbook for more information
 
-    bundler false
+    bundler true
 
     database do
       adapter "mysql2"
@@ -59,7 +59,7 @@ application "testrepo" do
 
     #gems %w{bundler}
 
-    #bundle_command "bundle"
+    bundle_command "bundle"
 
     #bundler_without_groups ["mysql"].
   end
@@ -72,16 +72,8 @@ application "testrepo" do
 
 end
 
-#Shouldnt have to do this
-
-execute "bundle-install" do
-  command "su -l -c 'cd /home/vagrant/current && bundle install --path=vendor/bundle --deployment' vagrant"
-  cwd "/home/vagrant/current"
-  user 'root'
-end
-
-execute "development-setup" do
-  command "su -l -c 'cd /home/vagrant/current && bundle exec rake db:setup RAILS_ENV=development' vagrant"
+execute "db:migrate" do
+  command "su -l -c 'cd /home/vagrant/current && bundle exec rake db:migrate RAILS_ENV=development' vagrant"
   cwd "/home/vagrant/current"
   user 'root'
 end

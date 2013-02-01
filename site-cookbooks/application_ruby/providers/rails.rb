@@ -77,11 +77,14 @@ action :before_migrate do
       # Check for a Gemfile.lock
       bundler_deployment = ::File.exists?(::File.join(new_resource.release_path, "Gemfile.lock"))
     end
-    execute "#{bundle_command} install --path=vendor/bundle #{bundler_deployment ? "--deployment " : ""}--without #{common_groups}" do
+
+    execute "bundle-install" do
+      command "su -l -c 'cd #{new_resource.release_path} && #{bundle_command} install --path=vendor/bundle --deployment --without #{common_groups}' #{new_resource.owner}"
       cwd new_resource.release_path
-      user new_resource.owner
       environment new_resource.environment
+      user 'root'
     end
+
   else
     # chef runs before_migrate, then symlink_before_migrate symlinks, then migrations,
     # yet our before_migrate needs database.yml to exist (and must complete before
@@ -89,11 +92,14 @@ action :before_migrate do
     #
     # maybe worth doing run_symlinks_before_migrate before before_migrate callbacks,
     # or an add'l callback.
-    execute "(ln -s ../../../shared/database.yml config/database.yml && rake gems:install); rm config/database.yml" do
+
+    execute "db-symlink" do
+      command "su -l -c 'cd #{new_resource.release_path} && (ln -s ../../../shared/database.yml config/database.yml && rake gems:install); rm config/database.yml' #{new_resource.owner}"
       cwd new_resource.release_path
-      user new_resource.owner
       environment new_resource.environment
+      user 'root'
     end
+
   end
 
   gem_names = new_resource.gems.map { |gem, ver| gem }

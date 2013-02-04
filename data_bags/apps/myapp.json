@@ -1,0 +1,53 @@
+{
+    "id": "myapp",
+    "server_roles": [
+        "myapp"
+    ],
+    "type": {
+        "myapp": [
+            "rails",
+            "unicorn"
+        ]
+    },
+    "database_master_role": [
+        "myappdatabasemaster"
+    ],
+    "repository": "git://github.com/mikenairn/testrepo.git",
+    "deploy_to": "/srv/myapp",
+    "revision": {
+        "production": "master"
+    },
+    "force": {
+        "production": false
+    },
+    "migrate": {
+        "production": false
+    },
+    "owner": "nobody",
+    "group": "nogroup",
+    "gems": {
+        "rails": "2.3.5",
+        "rspec": ""
+    },
+    "packages": {
+    },
+    "mysql_root_password": {
+        "production": "p@ssw0rd1root"
+    },
+    "mysql_debian_password": {
+        "production": "p@ssw0rd1debian"
+    },
+    "mysql_repl_password": {
+        "production": "p@ssw0rd1repl"
+    },
+    "databases": {
+        "_default": {
+            "reconnect": "true",
+            "encoding": "utf8",
+            "username": "myapp",
+            "adapter": "mysql",
+            "password": "p@ssw0rd1app",
+            "database": "myapp_development"
+        }
+    }
+}

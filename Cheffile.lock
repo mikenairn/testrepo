@@ -38,6 +38,13 @@ SITE
     yum (2.1.0)
 
 GIT
+  remote: https://github.com/edelight/chef-solo-search.git
+  ref: master
+  sha: d84105ac63200425384f98a7999bd9c937bb2ae1
+  specs:
+    chef-solo-search (0.4.0)
+
+GIT
   remote: https://github.com/fnichol/chef-rvm
   ref: master
   sha: 517723d7569472a8afbe8588af7122fc0df5583a
@@ -49,6 +56,7 @@ DEPENDENCIES
   apache2 (>= 0)
   application (>= 0)
   apt (>= 0)
+  chef-solo-search (>= 0)
   database (>= 0)
   git (>= 0)
   mysql (>= 0)

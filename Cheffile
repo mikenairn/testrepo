@@ -17,5 +17,8 @@ cookbook 'apache2'
 cookbook 'passenger_apache2'
 #
 
+cookbook 'chef-solo-search',
+   :git => 'https://github.com/edelight/chef-solo-search.git'
+
 cookbook 'rvm',
   :git => 'https://github.com/fnichol/chef-rvm'

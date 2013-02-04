@@ -1,0 +1,20 @@
+{
+    "name":"myapp",
+    "description":"",
+    "json_class":"Chef::Role",
+    "default_attributes": {
+        "mysql": {
+            "server_root_password": "p@ssw0rd1root",
+            "server_debian_password": "p@ssw0rd1debian",
+            "server_repl_password": "p@ssw0rd1repl"
+        }
+    },
+    "override_attributes":{
+    },
+    "chef_type":"role",
+    "run_list" : [
+        "recipe[git]",
+        "recipe[myapp]"],
+    "env_run_lists":{
+    }
+}
